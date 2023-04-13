@@ -77,7 +77,7 @@ export default {
         if (data.status === 'error') {
           throw new Error(data.message)
         }
-        this.restaurants = data.restaurants
+        this.restaurants = data.data.restaurants
       } catch (error) {
         Toast.fire({
           icon: 'error',

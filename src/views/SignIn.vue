@@ -89,16 +89,17 @@ export default {
           password: this.password
         })
         // 取得 API 請求後的資料
-        const { data } = response
 
-        if (data.status !== 'success') {
-          throw new Error(data.message)
+        if (response.data.status !== 'success') {
+          throw new Error(response.data.message)
         }
-
+        const res = response.data
+        console.log(res)
         // 將 token 存放在 localStorage 內
-        localStorage.setItem('token', data.token)
+        localStorage.setItem('token', res.data.token)
+        localStorage.setItem('userId', res.data.user.id)
         // 將資料傳到 Vuex 中
-        this.$store.commit('setCurrentUser', data.user)
+        this.$store.commit('setCurrentUser', res.data.user)
         // 成功登入後轉址到餐廳首頁
         this.$router.push('/restaurants')
       } catch (error) {

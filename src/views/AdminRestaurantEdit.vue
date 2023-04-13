@@ -55,7 +55,7 @@ export default {
           description,
           image,
           CategoryId: categoryId
-        } = data.restaurant
+        } = data.data.restaurant
 
         this.restaurant = {
           ...this.restaurant,

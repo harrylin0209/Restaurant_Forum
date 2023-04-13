@@ -171,7 +171,7 @@ export default {
     async fetchCategories () {
       try {
         const { data } = await adminAPI.categories.get()
-        this.categories = data.categories
+        this.categories = data.data.categories
         this.isLoading = false
       } catch (error) {
         this.isLoading = false

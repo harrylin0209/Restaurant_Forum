@@ -132,7 +132,7 @@ export default {
           throw new Error(data.message)
         }
 
-        this.categories = data.categories.map(category => ({
+        this.categories = data.data.categories.map(category => ({
           ...category,
           isEditing: false,
           nameCached: ''

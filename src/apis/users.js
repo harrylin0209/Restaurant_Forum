@@ -1,11 +1,14 @@
 import { apiHelper } from './../utils/helpers'
 
 export default {
-  getCurrentUser () {
-    return apiHelper.get(`/get_current_user`)
+  getCurrentUser ({ id }) {
+    return apiHelper.get(`/users/${id}`)
   },
-  get ({ userId }) {
-    return apiHelper.get(`/users/${userId}`)
+  getUser ({ id }) {
+    return apiHelper.get(`/users/${id}`)
+  },
+  updateUser ({ id, formData }) {
+    return apiHelper.put(`/users/${id}`, formData)
   },
   addFavorite ({ restaurantId }) {
     return apiHelper.post(`/favorite/${restaurantId}`, null)

@@ -75,12 +75,10 @@ export default {
   methods: {
     async fetchUser (userId) {
       try {
-        const { data } = await usersAPI.get({userId})
+        const { data } = await usersAPI.getUser({id: userId})
         if (data.status === 'error') {
           throw new Error(data.message)
         }
-        
-        const { profile, isFollowed } = data
         const {
           id,
           image,
@@ -90,7 +88,7 @@ export default {
           Followers,
           Comments,
           FavoritedRestaurants
-        } = profile
+        } = data.user
 
         const commentSet = new Set()
         this.comments = Comments.filter(
@@ -111,7 +109,6 @@ export default {
           commentsLength: this.comments.length,
           favoritedRestaurantsLength: FavoritedRestaurants.length
         }
-        this.isFollowed = isFollowed
         this.followings = Followings
         this.followers = Followers
         this.favoritedRestaurants = FavoritedRestaurants

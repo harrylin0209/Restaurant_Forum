@@ -77,7 +77,7 @@ export default {
           throw new Error(data.message)
         }
 
-        this.users = data.users
+        this.users = data.data.users
       } catch (error) {
           console.error(error.message)
           Toast.fire({
@@ -102,8 +102,7 @@ export default {
               ...user,
               isAdmin: !user.isAdmin,
             }
-          }
-            
+          }  
           return user
         })
       } catch (error){

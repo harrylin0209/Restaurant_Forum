@@ -37,7 +37,7 @@ export default {
       return apiHelper.get('/admin/users')
     },
     update ({ userId, isAdmin }) {
-      return apiHelper.put(`/admin/users/${userId}`, { isAdmin })
+      return apiHelper.patch(`/admin/users/${userId}`, { isAdmin })
     }
   }
 }
