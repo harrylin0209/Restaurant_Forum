@@ -94,7 +94,7 @@ export default {
           throw new Error(response.data.message)
         }
         const res = response.data
-        console.log(res)
+
         // 將 token 存放在 localStorage 內
         localStorage.setItem('token', res.data.token)
         localStorage.setItem('userId', res.data.user.id)
